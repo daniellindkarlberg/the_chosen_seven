@@ -1,0 +1,24 @@
+{
+  "name": "auktions_app",
+  "description": "projektarbete nackademin",
+  "main": "index.js",
+  "authors": [
+    "daniellindkarlberg <danielskua@hotmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/daniellindkarlberg/the_chosen_seven",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.3",
+    "angular-route": "^1.6.3",
+    "angular-animate": "^1.6.3",
+    "angular-bootstrap": "^2.5.0"
+  }
+}
