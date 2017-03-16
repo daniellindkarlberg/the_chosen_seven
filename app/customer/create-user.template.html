@@ -1,68 +1,62 @@
-<div class="row" ng-controller="createUserController" >
-    <div class="col-md-offset-2 col-md-8">
+<<div class="row" ng-controller="createUserController">
+    <div class="col-md-4">
         <h2>Skapa konto</h2>
-        <hr>
-        <form class="form-horizontal">
+
+        <form  name="userform" class= "form-group row" novalidate>
+             
+            <div class="form-group" ng-class="{ 'has-error': userform.firstname.$invalid && userform.firstname.$touched }">
+                <label class="control-label" for="firstname">Förnamn</label>
+                <input class="form-control" type="text" id="firstname" name="firstname" ng-model="user.firstname" required>
            
-            <div class="form-group">
-                <label for="firstname" class="col-md-2 control-label">Förnamn</label>
-                <div class="col-md-10">
-                    <input type="text" class="form-control" name="firstname" placeholder="Förnamn" ng-model="user.firstname">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="lastname" class="col-md-2 control-label">Efternamn</label>
-                <div class="col-md-10">
-                    <input type="text" class="form-control" name="lastname" placeholder="Efternamn" ng-model="user.lastname">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="email" class="col-md-2 control-label">E-post</label>
-                <div class="col-md-10">
-                    <input type="email" class="form-control" name="email" placeholder="E-post" ng-model="user.email">
-                </div>
-            </div>
+              </div>
+              
+            <div class="form-group" ng-class="{ 'has-error': userform.lastname.$invalid && userform.lastname.$touched }">
+                <label class="control-label" for="lastname">Efternamn</label>
+                <input class="form-control" type="text" id="lastname" name="lastname" ng-model="user.lastname" required>
             
-            <div class="form-group">
-                <label for="phone" class="col-md-2 control-label">Telefon</label>
-                <div class="col-md-10">
-                    <input type="text" class="form-control" name="phone" placeholder="Telefon" ng-model="user.phone">
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label for="password" class="col-md-2 control-label">Lösenord</label>
-                <div class="col-md-10">
-                    <input type="password" class="form-control" name="password" placeholder="Lösenord" ng-model="user.password">
-                </div>
-            </div>
+              </div>
 
-            <div class="form-group">
-                <label for="address" class="col-md-2 control-label">Adress</label>
-                <div class="col-md-10">
-                    <input type="text" class="form-control" name="address" placeholder="Adress" ng-model="user.address">
+              
+            <div class="form-group" ng-class="{ 'has-error': userform.email.$invalid && userform.email.$touched }">
+                <label class="control-label" for="email">Email</label>
+                <input class="form-control" type="email" id="email" name="email" ng-model="user.email" required>
+           
+              </div>
+              
+            <div class="form-group" ng-class="{ 'has-error': userform.password.$invalid && userform.password.$touched }">
+                <label class="control-label" for="password">Lösenord</label>
+                <input class="form-control" type="password" id="password" name="password" ng-model="user.password" required>
+           
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="postalcode" class="col-md-2 control-label">Postnummer</label>
-                <div class="col-md-10">
-                    <input type="text" class="form-control" name="postalcode" placeholder="Postnummer" ng-model="user.postalcode">
-                </div>
-            </div>
-
-             <div class="form-group">
-                <label for="city" class="col-md-2 control-label">Stad</label>
-                <div class="col-md-10">
-                    <input type="text" class="form-control" name="city" placeholder="Stad" ng-model="user.city">
-                </div>
-            </div>
+                  
+            <div class="form-group" ng-class="{ 'has-error': userform.phone.$invalid && userform.phone.$touched }">
+                <label class="control-label" for="phone">Telefon</label>
+                <input class="form-control" type="text" id="phone" name="phone" ng-model="user.phone" required>
             
+                  </div>
+                    
+            <div class="form-group" ng-class="{ 'has-error': userform.address.$invalid && userform.address.$touched }">
+                <label class="control-label" for="address">Adress</label>
+                <input class="form-control" type="text" id="address" name="address" ng-model="user.address" required>
+           
+                    </div>
+                   
+            <div class="form-group" ng-class="{ 'has-error': userform.postalcode.$invalid && userform.postalcode.$touched }">
+                <label class="control-label" for="postalcode">Postnummer</label>
+                <input class="form-control" type="text" id="postalcode" name="postalcode" ng-model="user.postalcode" required>
+            
+                      </div>
+                        
+            <div class="form-group" ng-class="{ 'has-error': userform.city.$invalid && userform.city.$touched }">
+                <label class="control-label" for="city">Stad</label>
+                <input class="form-control" type="text" id="city" name="city" ng-model="user.city" required>
+            
+                        </div>
+                         
             <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <button class="btn btn-primary" ng-click="createUser()">Skapa</button>
-                    <a class="btn btn-primary" href="/">Avbryt</a>
-                </div>
-            </div>
+                <button ng-disabled="userform.$invalid" class="btn btn-primary" ng-click="createUser(userform)">Skapa</button>
+            
+                          </div>
         </form>
     </div>
 </div>

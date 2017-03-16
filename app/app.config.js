@@ -3,12 +3,16 @@ angular.module("app")
 function($routeProvider, $locationProvider) {
     $routeProvider
     .when("/", { 
-        templateUrl: "app/auction/auction-list.template.html",
+        templateUrl: "app/customer/create-user.template.html",
         controller: "appController"
     })
     .when("/login", {
         templateUrl: "app/login/login.template.html",
         controller: "loginController"
+    })
+     .when("/signup", {
+        templateUrl: "app/customer/create-user.template.html",
+        controller: "customerController"
     })
     
     .when("/admin", {
