@@ -2,7 +2,6 @@
   "name": "auktions_app",
   "version": "1.0.0",
   "description": "projektarbete nackademin",
-  "main": "index.js",
   "scripts": {
     "start": "lite-server",
     "postinstall": "bower install"
