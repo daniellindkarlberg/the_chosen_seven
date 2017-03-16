@@ -25,12 +25,12 @@
     <script src="app/login/login.service.js"></script>
     <script src="app/login/login.controller.js"></script>
 
-    
+
     <script src="app/auction/auction.module.js"></script>
     <script src="app/auction/auction.service.js"></script>
     <script src="app/auction/auction.controller.js"></script>
     <script src="app/auction/auction-details.controller.js"></script>
-    
+
 
     <script src="app/admin/admin.module.js"></script>
     <script src="app/admin/admin.service.js"></script>
@@ -44,29 +44,34 @@
 </head>
 
 <body ng-app="app" ng-controller="appController">
-<div class="container">
-    <h1> Gunnar's Auctions </h1>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">            
-           
-   
+    <div class="container">
+        <h1> Gunnar's Auctions </h1>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+
+
                 <div class="navbar-header">
                     <p class="navbar-text">Gunnars Auktioner</p>
                 </div>
                 <ul class="nav navbar-nav navbar-left">
-                <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                    <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <li><span><input type="text" class="form-control" placeholder="Sök auktion" ng-model="auction"></span></li>
+                    </div>
+                </form>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                     <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
-        </div>
-  </nav>              
-        
-   
- <div ng-view></div>
-</div>
-    </body>
-  
-   
+            </div>
+        </nav>
+
+
+        <div ng-view></div>
+    </div>
+</body>
+
+
 </html>
