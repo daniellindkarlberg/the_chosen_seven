@@ -18,6 +18,11 @@
   "homepage": "https://github.com/daniellindkarlberg/the_chosen_seven#readme",
   "devDependencies": {
     "lite-server": "^2.3.0"
+<<<<<<< HEAD
   },
   "main": "index.js"
 }
+=======
+  }
+}
+>>>>>>> 3849bbd4756c9b0092e95a0b8e34e5c82ff6cdb3
