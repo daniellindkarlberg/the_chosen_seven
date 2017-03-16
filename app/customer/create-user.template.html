@@ -1,0 +1,68 @@
+<div class="row" ng-controller="createUserController" >
+    <div class="col-md-offset-2 col-md-8">
+        <h2>Skapa konto</h2>
+        <hr>
+        <form class="form-horizontal">
+           
+            <div class="form-group">
+                <label for="firstname" class="col-md-2 control-label">Förnamn</label>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" name="firstname" placeholder="Förnamn" ng-model="user.firstname">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastname" class="col-md-2 control-label">Efternamn</label>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" name="lastname" placeholder="Efternamn" ng-model="user.lastname">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email" class="col-md-2 control-label">E-post</label>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" name="email" placeholder="E-post" ng-model="user.email">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone" class="col-md-2 control-label">Telefon</label>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" name="phone" placeholder="Telefon" ng-model="user.phone">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="password" class="col-md-2 control-label">Lösenord</label>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" name="password" placeholder="Lösenord" ng-model="user.password">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="address" class="col-md-2 control-label">Adress</label>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" name="address" placeholder="Adress" ng-model="user.address">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="postalcode" class="col-md-2 control-label">Postnummer</label>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" name="postalcode" placeholder="Postnummer" ng-model="user.postalcode">
+                </div>
+            </div>
+
+             <div class="form-group">
+                <label for="city" class="col-md-2 control-label">Stad</label>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" name="city" placeholder="Stad" ng-model="user.city">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <button class="btn btn-primary" ng-click="createUser()">Skapa</button>
+                    <a class="btn btn-primary" href="/">Avbryt</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
