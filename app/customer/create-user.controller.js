@@ -1,9 +1,9 @@
 angular.module("customer").
-    controller("createUserController", ["$scope", "$routeParams", "$location", "customerService",
-        function ($scope, $routeParams, $location, customerService) {
+    controller("createUserController", ["$scope", "$location", "customerService",
+        function ($scope, $location, customerService) {
 
             $scope.createUser = function () {
-                var newCustomer = {
+                var newUser = {
                     firstName: $scope.user.firstname,
                     lastName: $scope.user.lastname,
                     email: $scope.user.email,
