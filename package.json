@@ -1,10 +1,16 @@
 {
   "name": "auktions_app",
   "version": "1.0.0",
-  "description": "projektarbete nackademin",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "lite-server": "^2.3.0"
+  },
+  "devDependencies": {},
   "scripts": {
     "start": "lite-server",
     "postinstall": "bower install"
+
   },
   "repository": {
     "type": "git",
@@ -15,14 +21,5 @@
   "bugs": {
     "url": "https://github.com/daniellindkarlberg/the_chosen_seven/issues"
   },
-  "homepage": "https://github.com/daniellindkarlberg/the_chosen_seven#readme",
-  "devDependencies": {
-    "lite-server": "^2.3.0"
-<<<<<<< HEAD
-  },
-  "main": "index.js"
+  "homepage": "https://github.com/daniellindkarlberg/the_chosen_seven#readme"
 }
-=======
-  }
-}
->>>>>>> 3849bbd4756c9b0092e95a0b8e34e5c82ff6cdb3
