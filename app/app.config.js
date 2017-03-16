@@ -23,7 +23,6 @@ function($routeProvider, $locationProvider) {
         templateUrl: "app/customer/customer.template.html",
         controller: "customerController"
     })
- 
   .otherwise("/");
     $locationProvider.html5Mode(true);
 }]);
