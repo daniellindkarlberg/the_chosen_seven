@@ -10,6 +10,10 @@ function($routeProvider, $locationProvider) {
         templateUrl: "app/login/login.template.html",
         controller: "loginController"
     })
+     .when("/signup", {
+        templateUrl: "app/customer/create-user.template.html",
+        controller: "customerController"
+    })
     
     .when("/admin", {
         templateUrl: "app/admin/admin.template.html",

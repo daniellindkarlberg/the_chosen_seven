@@ -2,7 +2,7 @@ angular.module("customer").
     controller("createUserController", ["$scope", "$location", "customerService",
         function ($scope, $location, customerService) {
 
-            $scope.createUser = function () {
+            $scope.createUser = function (form) {
                 var newUser = {
                     firstName: $scope.user.firstname,
                     lastName: $scope.user.lastname,
@@ -16,7 +16,7 @@ angular.module("customer").
 
                 };
                 customerService.createUser(newUser).then(function () {
-                    //$location.path("/user");
+                    $location.path("/");
                 });
             };
 
