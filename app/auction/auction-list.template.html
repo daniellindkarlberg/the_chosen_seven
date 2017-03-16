@@ -1,0 +1,18 @@
+<div class="container" ng-controller="auctionController">
+    <table class="table table-hover" ng-repeat="auction in auctions" id="auctionTabel" >
+        <thead>
+            <tr>
+                <th> <img ng-src="{{ auction.imageUrl }}" class="auction-img">  </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <p>{{ auction.name}}</p>
+                    <p>{{ auction.buyNowPrice}} Kr</p>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+<div>
