@@ -1,7 +1,6 @@
 {
   "name": "auktions_app",
   "description": "projektarbete nackademin",
-  "main": "index.js",
   "authors": [
     "daniellindkarlberg <danielskua@hotmail.com>"
   ],
