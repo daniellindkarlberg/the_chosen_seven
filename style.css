@@ -19,6 +19,12 @@
 .col-sm-4 {
     margin-bottom: 10px;
 }
+#loggedin{
+  color:limegreen;
+}
+#logout{
+  color: red;
+}
 
 .well-lg{
 
