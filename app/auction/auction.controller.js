@@ -9,18 +9,8 @@ controller("auctionController", ["$scope", "$location", "auctionService", functi
             $scope.auctions = auctions;
     });
 
-<<<<<<< HEAD
 
-$scope.auctionClicked = function (id) {
-        $location.path("/auction/" + id);
-    }
-
-
-
-
-}]);
-=======
-    auctionService.getCategories().then(function(response) {
+ auctionService.getCategories().then(function(response) {
         var categories = response.data;
         
         categories.unshift({ name:"Alla kategorier" });
@@ -28,6 +18,17 @@ $scope.auctionClicked = function (id) {
             $scope.categories = categories;
     });
 
+
+
+$scope.auctionClicked = function (id) {
+        $location.path("/auction/" + id);
+
+        console.log(id);
+    }
+
+
+
+
     
-} ]);
->>>>>>> a38ea31416cf23447b0f25831aec8a95516f7c2d
+}]);
+
