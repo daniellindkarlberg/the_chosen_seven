@@ -8,5 +8,15 @@
 #auctionTable {
     border: solid black;
 }
-
+.bilder {
+    height: 140px;
+    width: 140px;
+    border-radius: 7px;
+}
+.row {
+    padding-top: 25px;
+}
+.col-sm-4 {
+    margin-bottom: 10px;
+}
 

@@ -10,4 +10,11 @@ function($scope, $routeParams, auctionService) {
     }, function(errorResponse) {
         
     });
+
+
+
+
+
+
+    
 }]);
