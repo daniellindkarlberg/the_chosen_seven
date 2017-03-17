@@ -70,8 +70,11 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><a href="/signup" ng-show="!myLoggedIn"><span class="glyphicon glyphicon-user"></span> Registrera konto</a></li>
+                    <li><a href="/login" ng-show="!myLoggedIn"><span class="glyphicon glyphicon-log-in"></span><span> Login</span></a></li>
+                    <li><a href="/" ng-show="myRole=='Customer'"><span class="glyphicon glyphicon-user"></span><span id="loggedin"> {{name}}</span></a></li>
+                    <li><a href="/admin" ng-show="myRole=='Administrator'"><span class="glyphicon glyphicon-user"></span><span id="loggedin"> Administratör</span></a></li>
+                    <li><a href="/" ng-show="myLoggedIn" ng-click="logOut()"><span class="glyphicon glyphicon-log-out"></span><span id="logout"> Logga ut</span></a></li>
                 </ul>
             </div>
         </nav>
