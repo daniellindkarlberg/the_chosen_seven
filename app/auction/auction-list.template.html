@@ -1,12 +1,13 @@
+<!--
 <div class="container" ng-controller="auctionController">
-   
 
 
-    <table class="table table-hover" ng-repeat="auction in auctions | filter: productSearchInput" id="auctionTable"  ng-click="auctionClicked(auction.id)" >
+
+    <table class="table table-hover" ng-repeat="auction in auctions | filter: productSearchInput" id="auctionTable" ng-click="auctionClicked(auction.id)">
 
         <thead>
             <tr>
-                <th> <img ng-src="{{ auction.imageUrl }}" class="auction-img">  </th>
+                <th> <img ng-src="{{ auction.imageUrl }}" class="auction-img"> </th>
             </tr>
         </thead>
         <tbody>
@@ -17,6 +18,18 @@
                 </td>
             </tr>
         </tbody>
-
     </table>
-<div>
+</div>
+-->
+        <div class="container" ng-controller="auctionController">
+            <div class="row">
+                <div ng-repeat="auction in auctions | filter: productSearchInput" ng-click="auctionClicked(auction.id)">
+                    <div class="clearfix" ng-if="$index % 3 == 0"></div>
+                    <div class="col-sm-4">
+                        <img class="bilder" ng-src="{{ auction.imageUrl }}" alt="Bild på auktioner">
+                        <p>{{ auction.name }}</p>
+                        <p>Acceptpris: <span>{{ auction.buyNowPrice }} Kr</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>

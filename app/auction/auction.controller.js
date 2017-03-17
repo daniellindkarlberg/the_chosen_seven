@@ -1,6 +1,8 @@
 angular.module("auction").
 controller("auctionController", ["$scope", "$location", "auctionService", function($scope, $location, auctionService){
     
+$scope.products = productService.getProducts();
+
     auctionService.getAuctions().then(function(response) {
         var auctions = response.data;
             angular.forEach(auctions, function(auction) {
@@ -10,14 +12,13 @@ controller("auctionController", ["$scope", "$location", "auctionService", functi
     });
 
 
- //auctionService.getCategories().then(function(response) {
-   //     var categories = response.data;
+ auctionService.getCategories().then(function(response) {
+        var categories = response.data;
         
-     //   categories.unshift({ name:"Alla kategorier" });
-       //     console.log(categories);
-         //   $scope.categories = categories;
-  //  });
-
+        categories.unshift({ name:"Alla kategorier" });
+            console.log(categories);
+            $scope.categories = categories;
+    });
 
 
 $scope.auctionClicked = function (id) {
@@ -26,9 +27,6 @@ $scope.auctionClicked = function (id) {
         console.log(id);
     }
 
-
-
-
-    
 }]);
+
 
