@@ -45,7 +45,28 @@
             <button type="submit" class="btn btn-danger btn-sm">Lägg bud</button>
         </form>
        
-
+  <hr>
+        <h5>Budhistorik</h5>
+        <button type="button" class="btn btn-warning" ng-click="isCollapsedBid = !isCollapsedBid"><span class="glyphicon glyphicon-bullhorn"></span></button>
+        <hr>
+        <div uib-collapse="isCollapsedBid">
+            <div class="well well-lg">
+                <table>
+                    <tbody ng-repeat="bid in bids">
+                        <tr>
+                            <td><strong>Budgivare:</strong> {{bid.customerId}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong> Datum:</strong> {{bid.dateTime}}</td>
+                        </tr>
+                            <tr>
+                                <td><strong> Bud:</strong> {{bid.bidPrice}}</td>
+                            </tr>
+                            
+                    </tbody>
+                </table>
+            </div>
+        </div>
         <hr>
         <h5>Leverantör</h5>
         <button type="button" class="btn btn-info" ng-click="isCollapsed = !isCollapsed"><span class="glyphicon glyphicon-user"></span></button>
