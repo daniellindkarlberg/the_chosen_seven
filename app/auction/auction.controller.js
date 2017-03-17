@@ -8,4 +8,14 @@ controller("auctionController", ["$scope", "$location", "auctionService", functi
             });
             $scope.auctions = auctions;
     });
+
+    auctionService.getCategories().then(function(response) {
+        var categories = response.data;
+        
+        categories.unshift({ name:"Alla kategorier" });
+            console.log(categories);
+            $scope.categories = categories;
+    });
+
+    
 } ]);

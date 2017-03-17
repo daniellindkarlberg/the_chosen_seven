@@ -57,22 +57,26 @@
                     <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
                     <form class="navbar-form navbar-left">
                         <div class="form-group">
-                            <li><span><input type="text" class="form-control" placeholder="Sök auktion" ng-model="auction"></span></li>
+                            <li><span><input type="text" class="form-control" placeholder="Sök auktion" ng-model="productSearchInput"></span></li>
                         </div>
 
 
                     </form>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
+                    <div class="btn-group" uib-dropdown is-open="status.isopen" ng-controller="auctionController">
+                        <button id="selectCategory" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
+                        Kategori-filter
+                        <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="selectCategory">
+                            <li role="menuitem" ng-repeat="category in categories" ng-click="onCategorySelect(category.id)">
+                                {{ category.name }}
+                            </li>
                         </ul>
-                    </li>
+                    </div>
+
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-
-
                     <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                     <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
@@ -86,3 +90,11 @@
 
 
 </html>
+<!--
+<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                        </ul>
+                    </li>
+-->

@@ -2,7 +2,7 @@
     <div class="col-sm-2">
     
     </div>
-    <table class="table table-hover" ng-repeat="auction in auctions | filter: auction" id="auctionTabel" >
+    <table class="table table-hover" ng-repeat="auction in auctions | filter: productSearchInput" id="auctionTable" >
         <thead>
             <tr>
                 <th> <img ng-src="{{ auction.imageUrl }}" class="auction-img">  </th>
