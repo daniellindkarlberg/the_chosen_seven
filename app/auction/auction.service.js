@@ -5,7 +5,7 @@ angular.module("auction")
             return $http.get("http://nackademiska-api.azurewebsites.net/api/auction"); 
         },
         getAuctionById: function(id) {
-            return $http.get("http://nackademiska-api.azurewebsites.net/api/auction " + id);
+            return $http.get("http://nackademiska-api.azurewebsites.net/api/auction/" + id);
         },
 
         getCompletedAuctions: function() { 

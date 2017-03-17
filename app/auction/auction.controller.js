@@ -9,7 +9,8 @@ controller("auctionController", ["$scope", "$location", "auctionService", functi
             $scope.auctions = auctions;
     });
 
-    auctionService.getCategories().then(function(response) {
+
+ auctionService.getCategories().then(function(response) {
         var categories = response.data;
         
         categories.unshift({ name:"Alla kategorier" });
@@ -18,4 +19,20 @@ controller("auctionController", ["$scope", "$location", "auctionService", functi
     });
 
 
+<<<<<<< HEAD
 }]);
+=======
+
+$scope.auctionClicked = function (id) {
+        $location.path("/auction/" + id);
+
+        console.log(id);
+    }
+
+
+
+
+    
+}]);
+
+>>>>>>> 945ab8de109ff45debe2383a3a451c7efba1fd5a

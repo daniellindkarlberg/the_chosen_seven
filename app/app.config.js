@@ -23,6 +23,12 @@ function($routeProvider, $locationProvider) {
         templateUrl: "app/customer/customer.template.html",
         controller: "customerController"
     })
+
+
+    .when("/auction/:auctionId",{
+        templateUrl: "app/auction/auction-details.template.html",
+        controller: "auctionDetailsController"
+    })
   .otherwise("/");
     $locationProvider.html5Mode(true);
 }]);
