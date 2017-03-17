@@ -59,20 +59,7 @@
                         <div class="form-group">
                             <li><span><input type="text" class="form-control" placeholder="Sök auktion" ng-model="productSearchInput"></span></li>
                         </div>
-
-
                     </form>
-                    <div class="btn-group" uib-dropdown is-open="status.isopen" ng-controller="auctionController">
-                        <button id="selectCategory" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
-                        Kategori-filter
-                        <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="selectCategory">
-                            <li role="menuitem" ng-repeat="category in categories" ng-click="onCategorySelect(category.id)">
-                                {{ category.name }}
-                            </li>
-                        </ul>
-                    </div>
 
                 </ul>
 
