@@ -21,6 +21,7 @@
 }
 #loggedin{
   color:limegreen;
+  font-weight: bold;
 }
 #logout{
   color: red;
