@@ -8,4 +8,13 @@ controller("auctionController", ["$scope", "$location", "auctionService", functi
             });
             $scope.auctions = auctions;
     });
-} ]);
+
+
+$scope.auctionClicked = function (id) {
+        $location.path("/auction/" + id);
+    }
+
+
+
+
+}]);
