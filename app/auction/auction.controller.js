@@ -10,13 +10,13 @@ controller("auctionController", ["$scope", "$location", "auctionService", functi
     });
 
 
- auctionService.getCategories().then(function(response) {
-        var categories = response.data;
+ //auctionService.getCategories().then(function(response) {
+   //     var categories = response.data;
         
-        categories.unshift({ name:"Alla kategorier" });
-            console.log(categories);
-            $scope.categories = categories;
-    });
+     //   categories.unshift({ name:"Alla kategorier" });
+       //     console.log(categories);
+         //   $scope.categories = categories;
+  //  });
 
 
 
