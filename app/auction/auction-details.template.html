@@ -32,5 +32,40 @@
         </table>
          <div><h5>Pris:  {{ auction.buyNowPrice | currency:"SEK":0 }}</h5></div>
         <button type="button" class="btn btn-primary">Köp nu</button>
+        <hr>
+        <h5>Leverantör</h5>
+	<button type="button" class="btn btn-info" ng-click="isCollapsed = !isCollapsed"><span class="glyphicon glyphicon-user"></span></button>
+	<hr>
+	<div uib-collapse="isCollapsed">
+		<div class="well well-lg">
+<table>
+<tbody>
+<tr>
+<td>Företagsnamn: {{supplier.companyName}}</td>
+</tr>
+<tr>
+<td>Email: {{supplier.email}}</td>
+<tr>
+<td>Telefon: {{supplier.phone}}</td>
+</tr>
+<tr>
+<td>Adress: {{supplier.address}}</td>
+</tr>
+<tr>
+<td>Postnummer: {{supplier.postalCode}}</td>
+</tr>
+<tr>
+<td>Stad: {{supplier.city}}</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+        </div>
+	</div>
     </div>
 </div>
