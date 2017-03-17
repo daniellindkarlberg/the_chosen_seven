@@ -30,8 +30,12 @@
                 </tr>
             </tbody>
         </table>
+
         
          <div><h5>Pris:  {{ auction.buyNowPrice | currency:"SEK":0 }}</h5></div>
+
+         <div><h5>Acceptpris:  {{ auction.buyNowPrice | currency:"SEK":0 }}</h5></div>
+
         <button type="button" class="btn btn-primary">Köp nu</button>
         <hr>
         <h5>Leverantör</h5>
@@ -42,21 +46,21 @@
 <table>
 <tbody>
 <tr>
-<td>Företagsnamn: {{supplier.companyName}}</td>
+<td><strong>Företagsnamn:</strong> {{supplier.companyName}}</td>
 </tr>
 <tr>
-<td>Email: {{supplier.email}}</td>
+<td><strong> Email:</strong> {{supplier.email}}</td>
 <tr>
-<td>Telefon: {{supplier.phone}}</td>
+<td><strong> Telefon:</strong> {{supplier.phone}}</td>
 </tr>
 <tr>
-<td>Adress: {{supplier.address}}</td>
+<td><strong> Adress:</strong> {{supplier.address}}</td>
 </tr>
 <tr>
-<td>Postnummer: {{supplier.postalCode}}</td>
+<td> <strong> Postnummer:</strong> {{supplier.postalCode}}</td>
 </tr>
 <tr>
-<td>Stad: {{supplier.city}}</td>
+<td> <strong> Stad:</strong> {{supplier.city}}</td>
 </tr>
 </tbody>
 </table>
