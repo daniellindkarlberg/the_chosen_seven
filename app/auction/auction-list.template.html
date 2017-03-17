@@ -1,7 +1,6 @@
 <div class="container" ng-controller="auctionController">
-   
 
-    <div class="btn-group" uib-dropdown is-open="status.isopen" ng-controller="auctionController">
+    <div class="btn-group" uib-dropdown is-open="status.isopen">
     <button id="selectCategory" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
         Kategori-filter
         <span class="caret"></span>
@@ -13,7 +12,8 @@
     </ul>
     </div>
 
-    <table class="table table-hover" ng-repeat="auction in auctions | filter: productSearchInput" id="auctionTable"  ng-click="auctionClicked(auction.id)" >
+    <table class="table table-hover" ng-repeat="auction in auctions | filter: {categoryId:selectedCategoryId} | filter: productSearchInput" id="auctionTable"
+        ng-click="auctionClicked(auction.id)" >
 
         <thead>
             <tr>
