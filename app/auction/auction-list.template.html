@@ -1,29 +1,21 @@
-<!--
+
 <div class="container" ng-controller="auctionController">
 
-
-
-    <table class="table table-hover" ng-repeat="auction in auctions | filter: productSearchInput" id="auctionTable" ng-click="auctionClicked(auction.id)">
-
-        <thead>
-            <tr>
-                <th> <img ng-src="{{ auction.imageUrl }}" class="auction-img"> </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    <p>{{ auction.name}}</p>
-                    <p>{{ auction.buyNowPrice}} Kr</p>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
--->
-        <div class="container" ng-controller="auctionController">
+    <div class="btn-group" uib-dropdown is-open="status.isopen">
+    <button id="selectCategory" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
+        Kategori-filter
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="selectCategory">
+        <li role="menuitem" ng-repeat="category in categories" ng-click="onCategorySelect(category.id)">
+            {{ category.name }}
+        </li>
+    </ul>
+    </div>
+ 
+        <div class="container">
             <div class="row">
-                <div ng-repeat="auction in auctions | filter: productSearchInput" ng-click="auctionClicked(auction.id)">
+                <div ng-repeat="auction in auctions | filter: {categoryId:selectedCategoryId} | filter: productSearchInput" ng-click="auctionClicked(auction.id)">
                     <div class="clearfix" ng-if="$index % 3 == 0"></div>
                     <div class="col-sm-4">
                         <img class="bilder" ng-src="{{ auction.imageUrl }}" alt="Bild på auktioner">
@@ -33,3 +25,5 @@
                 </div>
             </div>
         </div>
+
+</div>
