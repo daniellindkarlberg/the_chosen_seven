@@ -1,4 +1,4 @@
-<!--
+
 <div class="container" ng-controller="auctionController">
 
     <div class="btn-group" uib-dropdown is-open="status.isopen">
@@ -12,28 +12,10 @@
         </li>
     </ul>
     </div>
-
-   <table class="table table-hover" ng-repeat="auction in auctions | filter: {categoryId:selectedCategoryId} | filter: productSearchInput" id="auctionTable"
-        ng-click="auctionClicked(auction.id)" >
-        <thead>
-            <tr>
-                <th> <img ng-src="{{ auction.imageUrl }}" class="auction-img"> </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    <p>{{ auction.name}}</p>
-                    <p>{{ auction.buyNowPrice}} Kr</p>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
--->
-        <div class="container" ng-controller="auctionController">
+ 
+        <div class="container">
             <div class="row">
-                <div ng-repeat="auction in auctions | filter: productSearchInput" ng-click="auctionClicked(auction.id)">
+                <div ng-repeat="auction in auctions | filter: {categoryId:selectedCategoryId} | filter: productSearchInput" ng-click="auctionClicked(auction.id)">
                     <div class="clearfix" ng-if="$index % 3 == 0"></div>
                     <div class="col-sm-4">
                         <img class="bilder" ng-src="{{ auction.imageUrl }}" alt="Bild på auktioner">
@@ -43,3 +25,5 @@
                 </div>
             </div>
         </div>
+
+</div>
