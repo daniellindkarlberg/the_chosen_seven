@@ -17,5 +17,5 @@ controller("auctionController", ["$scope", "$location", "auctionService", functi
             $scope.categories = categories;
     });
 
-    
-} ]);
+
+}]);
