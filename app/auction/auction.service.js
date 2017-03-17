@@ -11,5 +11,9 @@ angular.module("auction")
         getCompletedAuctions: function() { 
             return $http.get("http://nackademiska-api.azurewebsites.net/api/auction/completed"); 
         },
+
+        getCategories: function() {
+            return $http.get("http://nackademiska-api.azurewebsites.net/api/category");
+        },
     };
 }]);
