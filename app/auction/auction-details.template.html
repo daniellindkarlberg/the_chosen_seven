@@ -1,76 +1,79 @@
 <div class="row">
     <div class="col-md-12">
-        
+
         <hr>
         <table class="table">
             <thead>
                 <tr>
-                   <th></th>
+                    <th></th>
                     <th>Info</th>
                     <th>Beskrivning</th>
                     <th>Startdatum</th>
                     <th>Slutdatum</th>
-                    
-                    
-                    
+
+
+
                 </tr>
             </thead>
             <tbody>
                 <tr ng-click="contactClicked(contact.id)">
-                   <td><img ng-src="{{ auction.imageUrl }}" class="bilder"></td>
+                    <td><img ng-src="{{ auction.imageUrl }}" class="bilder"></td>
                     <td>{{ auction.name }}</td>
                     <td>{{ auction.description }}</td>
                     <td>{{ auction.startTime }}</td>
                     <td>{{ auction.endTime }}</td>
-                    
-                  
-                    
-                    
-                   
+
+
+
+
+
                 </tr>
             </tbody>
         </table>
 
-        
-         <div><h5>Pris:  {{ auction.buyNowPrice | currency:"SEK":0 }}</h5></div>
 
-         <div><h5>Acceptpris:  {{ auction.buyNowPrice | currency:"SEK":0 }}</h5></div>
+        <div>
+            <h5>Acceptpris: {{ auction.buyNowPrice | currency:"SEK":0 }}</h5>
+        </div>
+        <form class="form-inline">
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control input-sm" id="exampleInputAmount" placeholder="Belopp">
+                    
+                </div>
+            </div>
+            <button type="submit" class="btn btn-danger btn-sm">Lägg bud</button>
+        </form>
+       
 
-        <button type="button" class="btn btn-primary">Köp nu</button>
         <hr>
         <h5>Leverantör</h5>
-	<button type="button" class="btn btn-info" ng-click="isCollapsed = !isCollapsed"><span class="glyphicon glyphicon-user"></span></button>
-	<hr>
-	<div uib-collapse="isCollapsed">
-		<div class="well well-lg">
-<table>
-<tbody>
-<tr>
-<td><strong>Företagsnamn:</strong> {{supplier.companyName}}</td>
-</tr>
-<tr>
-<td><strong> Email:</strong> {{supplier.email}}</td>
-<tr>
-<td><strong> Telefon:</strong> {{supplier.phone}}</td>
-</tr>
-<tr>
-<td><strong> Adress:</strong> {{supplier.address}}</td>
-</tr>
-<tr>
-<td> <strong> Postnummer:</strong> {{supplier.postalCode}}</td>
-</tr>
-<tr>
-<td> <strong> Stad:</strong> {{supplier.city}}</td>
-</tr>
-</tbody>
-</table>
-
-
-
-
-
-
+        <button type="button" class="btn btn-info" ng-click="isCollapsed = !isCollapsed"><span class="glyphicon glyphicon-user"></span></button>
+        <hr>
+        <div uib-collapse="isCollapsed">
+            <div class="well well-lg">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><strong>Företagsnamn:</strong> {{supplier.companyName}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong> Email:</strong> {{supplier.email}}</td>
+                            <tr>
+                                <td><strong> Telefon:</strong> {{supplier.phone}}</td>
+                            </tr>
+                            <tr>
+                                <td><strong> Adress:</strong> {{supplier.address}}</td>
+                            </tr>
+                            <tr>
+                                <td> <strong> Postnummer:</strong> {{supplier.postalCode}}</td>
+                            </tr>
+                            <tr>
+                                <td> <strong> Stad:</strong> {{supplier.city}}</td>
+                            </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-	</div>
     </div>
 </div>
