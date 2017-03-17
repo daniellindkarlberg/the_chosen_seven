@@ -10,4 +10,27 @@ $scope.products = productService.getProducts();
             });
             $scope.auctions = auctions;
     });
-} ]);
+
+
+ //auctionService.getCategories().then(function(response) {
+   //     var categories = response.data;
+        
+     //   categories.unshift({ name:"Alla kategorier" });
+       //     console.log(categories);
+         //   $scope.categories = categories;
+  //  });
+
+
+
+$scope.auctionClicked = function (id) {
+        $location.path("/auction/" + id);
+
+        console.log(id);
+    }
+
+
+
+
+    
+}]);
+

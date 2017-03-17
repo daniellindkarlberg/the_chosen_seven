@@ -23,6 +23,17 @@ function($routeProvider, $locationProvider) {
         templateUrl: "app/customer/customer.template.html",
         controller: "customerController"
     })
+
+
+    .when("/auction/:auctionId",{
+        templateUrl: "app/auction/auction-details.template.html",
+        controller: "auctionDetailsController"
+    })
+
+    .when("/supplier/:supplierId",{
+        templateUrl: "app/supplier/supplier-details.template.html",
+        controller: "supplierDetailsController"
+    })
   .otherwise("/");
     $locationProvider.html5Mode(true);
 }]);
