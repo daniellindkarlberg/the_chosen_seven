@@ -19,20 +19,12 @@ controller("auctionController", ["$scope", "$location", "auctionService", functi
     });
 
 
-<<<<<<< HEAD
-}]);
-=======
-
 $scope.auctionClicked = function (id) {
         $location.path("/auction/" + id);
 
         console.log(id);
     }
 
-
-
-
-    
 }]);
 
->>>>>>> 945ab8de109ff45debe2383a3a451c7efba1fd5a
+
