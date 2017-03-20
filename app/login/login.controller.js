@@ -13,26 +13,24 @@ angular.module("login").
                 $scope.text = "";
 
                 loginService.login(newLogin).then(function (response) {
-                    $scope.user = response.data;
-                    if ($scope.user.role == 'Administrator') {
-                        loginService.setUserData($scope.user.id, $scope.user.role,$scope.user.firstName,$scope.user.lastName,true);
-                        var name = loginService.getName();
-                        $rootScope.$broadcast("loggedIn", {a:$scope.user.role, b:name, c:true});
-                        $location.path("/admin");
-                    }
-                    else if ($scope.user.role == 'Customer') {
-                        loginService.setUserData($scope.user.id, $scope.user.role, $scope.user.firstName,$scope.user.lastName,true);          
-                        var name = loginService.getName();
-                        $rootScope.$broadcast("loggedIn", {a:$scope.user.role, b:name, c:true});
-                        $location.path("/auction");
-                    }
-                    else {
+                    var role = loginService.getRole();
+                    var error = loginService.getErrorMsg();
 
+                    if (error == "Unauthorized") {
+                        $scope.text = "Inloggningen misslyckades!";
+                    }
+                    else if (role == 'Administrator') {
+                        $rootScope.$broadcast("loggedIn");
+                        $location.path("/admin");
+                        $scope.text="";
+                        $scope.login = {};
+                    }
+                    else if (role == 'Customer') {
+                        $rootScope.$broadcast("loggedIn");
+                        $location.path("/auction");
+                        $scope.text="";
+                        $scope.login = {};
                     }
                 });
             };
-            $scope.$on("loggedOut", function (event, args) {
-                loginService.setUserData("", "notLoggedIn", false);
-                $scope.login = {};
-            });
         }]);

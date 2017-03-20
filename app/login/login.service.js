@@ -1,24 +1,58 @@
-angular.module("login")
+    angular.module("login")
     .factory("loginService", ["$http", function ($http) {
-        var isLoggedIn=false;
-        var loginId;
-        var userRole;
-        var name;
+        var isLoggedIn = false;
+        var customerId;
+        var firstName;
+        var lastName;
+        var email;
+        var phone;
+        var address;
+        var postalCode;
+        var city;
+        var role;
+        var fullName;
+        var errorMessage="";
+
         return {
-            login: function(obj){
-                return $http.post("http://nackademiska-api.azurewebsites.net/api/account/login", obj);         
+            login: function (obj) {
+                return $http.post("http://nackademiska-api.azurewebsites.net/api/account/login", obj)
+                    .then(function (response) {
+                        isLoggedIn=true;
+                        customerId = response.data.customerId;
+                        firstName = response.data.firstName;
+                        lastName = response.data.lastName;
+                        email = response.data.email;
+                        phone = response.data.phone;
+                        address = response.data.address;
+                        postalCode = response.data.postalCode;
+                        city = response.data.city;
+                        role=response.data.role;
+                        fullName = firstName + " " + lastName;
+                        errorMessage="";
+                    }, function (error) {
+                        if (error.status == 401) {
+                            errorMessage = "Unauthorized";
+                        }
+                    });
             },
-             setUserData:function(userid, role,firstname,lastname, status){
-                loginId=userid;
-                userRole=role;
-                name=firstname +" " + lastname;
-                isLoggedIn=status;
-            },
-            isLoggedIn: function(){
+            isLoggedIn: function () {
                 return isLoggedIn;
             },
-            getName: function(){
-                return name;
+             logOut: function () {
+               isLoggedIn=false;
             },
+            getErrorMsg:function(){
+                return errorMessage;
+            },
+            getUser: function () {
+                return customerId;
+            },
+            getName: function () {
+                return fullName;
+            },
+            getRole: function(){
+                return role;
+            }
         };
     }]);
+
