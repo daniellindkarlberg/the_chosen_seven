@@ -10,7 +10,6 @@
   "scripts": {
     "start": "lite-server",
     "postinstall": "bower install"
-
   },
   "repository": {
     "type": "git",
