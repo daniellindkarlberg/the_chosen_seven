@@ -1,4 +1,4 @@
-    angular.module("login")
+angular.module("login")
     .factory("loginService", ["$http", function ($http) {
         var isLoggedIn = false;
         var customerId;
@@ -11,13 +11,13 @@
         var city;
         var role;
         var fullName;
-        var errorMessage="";
+        var errorMessage = "";
 
         return {
             login: function (obj) {
                 return $http.post("http://nackademiska-api.azurewebsites.net/api/account/login", obj)
                     .then(function (response) {
-                        isLoggedIn=true;
+                        isLoggedIn = true;
                         customerId = response.data.customerId;
                         firstName = response.data.firstName;
                         lastName = response.data.lastName;
@@ -26,11 +26,10 @@
                         address = response.data.address;
                         postalCode = response.data.postalCode;
                         city = response.data.city;
-                        role=response.data.role;
+                        role = response.data.role;
                         fullName = firstName + " " + lastName;
-                        errorMessage="";
+                        errorMessage = "";
                     }, function (error) {
-                        console.log(error.status);
                         if (error.status == -1) {
                             errorMessage = "Unauthorized";
                         }
@@ -39,11 +38,14 @@
             isLoggedIn: function () {
                 return isLoggedIn;
             },
-             logOut: function () {
-               isLoggedIn=false;
-               errorMessage="";
+            getCustomerId: function () {
+                return customerId;
             },
-            getErrorMsg:function(){
+            logOut: function () {
+                isLoggedIn = false;
+                errorMessage = "";
+            },
+            getErrorMsg: function () {
                 return errorMessage;
             },
             getUser: function () {
@@ -52,7 +54,7 @@
             getName: function () {
                 return fullName;
             },
-            getRole: function(){
+            getRole: function () {
                 return role;
             }
         };
