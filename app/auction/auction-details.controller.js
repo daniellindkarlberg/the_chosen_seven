@@ -1,7 +1,7 @@
 angular.module("auction").
-controller("auctionDetailsController", ["$scope", "$routeParams", "auctionService","supplierService" , 
+controller("auctionDetailsController", ["$scope", "$routeParams", "auctionService","supplierService" , "loginService",
 
-function($scope, $routeParams, auctionService, supplierService) {
+function($scope, $routeParams, auctionService, supplierService, loginService) {
    var auction = {};
    
        auctionService.getAuctionById($routeParams.auctionId).then(function(response) {

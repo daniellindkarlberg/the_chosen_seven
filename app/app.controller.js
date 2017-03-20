@@ -13,5 +13,6 @@ angular.module("app").
             $scope.myLoggedIn = false;
             $scope.myRole = "notLoggedIn";
             $scope.name="";
+            loginService.logOut();
         };
     }]);
