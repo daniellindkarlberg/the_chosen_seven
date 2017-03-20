@@ -4,12 +4,10 @@ angular.module("admin").controller("adminController", ["$scope", "auctionServi
     var suppliers;
 
     auctionService.getCompletedAuctions().then(function (response) {
-        $scope.completedAuctions = response.data;
         completedAuctions = response.data;
         console.log("First completed auction id: " + completedAuctions[0].id);
 
         supplierService.getSuppliers().then(function (response) {
-            $scope.suppliers = response.data;
             suppliers = response.data;
             console.log("First supplier name: " + suppliers[0].companyName);
 
@@ -33,9 +31,11 @@ angular.module("admin").controller("adminController", ["$scope", "auctionServi
                     console.log("Commission: " + auction.commission);
                 });
             });
+            $scope.completedAuctions = completedAuctions;
+            console.log("Commission for completed auction: " + completedAuctions[0].commission);    
         });
     });
-
+        
     }]);
 
 
