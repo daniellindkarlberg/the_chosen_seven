@@ -18,7 +18,7 @@ angular.module("login")
                 return $http.post("http://nackademiska-api.azurewebsites.net/api/account/login", obj)
                     .then(function (response) {
                         isLoggedIn = true;
-                        customerId = response.data.customerId;
+                        customerId = response.data.id;
                         firstName = response.data.firstName;
                         lastName = response.data.lastName;
                         email = response.data.email;

@@ -16,12 +16,12 @@
                 </tr>
             </thead>
             <tbody>
-                    <tr>
+                <tr>
                     <td><img ng-src="{{ auction.imageUrl }}" class="bilder"></td>
                     <td>{{ auction.name }}</td>
                     <td>{{ auction.description }}</td>
-                    <td>{{ auction.startTime }}</td>
-                    <td>{{ auction.endTime }}</td>
+                    <td>{{ auction.startTime | date :'yyyy-mm-dd' }}</td>
+                    <td>{{ auction.endTime | date :'yyyy-mm-dd'}}</td>
 
 
 
@@ -35,34 +35,38 @@
         <div>
             <h5>Acceptpris: {{ auction.buyNowPrice | currency:"SEK":0 }}</h5>
         </div>
-        <form class="form-inline">
+        <form class="form-inline" name="bidForm">
             <div class="form-group">
                 <div class="input-group">
-                    <input type="text" class="form-control input-sm" id="exampleInputAmount" placeholder="Belopp">
-                    
+                    <input type="text" class="form-control input-sm" id="exampleInputAmount" placeholder="Belopp" ng-model="bid.placeBid">
+
                 </div>
             </div>
-            <button type="submit" class="btn btn-danger btn-sm">Lägg bud</button>
+            <button type="submit" class="btn btn-danger btn-sm" ng-click="bidClicked(bidForm);updateBidHistory()">Lägg bud</button> <button style="margin-left: 5px;" type="submit" class="btn btn-primary btn-sm" ng-click="buyNowClicked()" >Köp nu</button>
         </form>
-       
-  <hr>
+        <h4>{{text}}</h4>
+        <h4>Högsta bud: {{highestBid | currency:"SEK":0 }}</h4>
+        
+
+        <hr>
         <h5>Budhistorik</h5>
         <button type="button" class="btn btn-warning" ng-click="isCollapsedBid = !isCollapsedBid"><span class="glyphicon glyphicon-bullhorn"></span></button>
         <hr>
         <div uib-collapse="isCollapsedBid">
             <div class="well well-lg">
                 <table>
-                    <tbody ng-repeat="bid in bids">
+                    <tbody ng-repeat="bid in bids" >
+                       <div class="bidHistory" >
                         <tr>
-                            <td><strong>Budgivare:</strong> {{bid.customerId}}</td>
+                            <td><strong> Datum:</strong> {{bid.dateTime | date :'yyyy-mm-dd' }}</td>
                         </tr>
                         <tr>
-                            <td><strong> Datum:</strong> {{bid.dateTime}}</td>
+                            <td><strong> Bud:</strong> {{bid.bidPrice}}</td>
                         </tr>
-                            <tr>
-                                <td><strong> Bud:</strong> {{bid.bidPrice}}</td>
-                            </tr>
-                            
+                        <tr>
+                            <td></td>
+                        </tr>
+                       
                     </tbody>
                 </table>
             </div>

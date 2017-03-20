@@ -5,6 +5,8 @@ controller("auctionController", ["$scope", "$location", "auctionService", functi
         var auctions = response.data;
             angular.forEach(auctions, function(auction) {
 
+                var highestBid = auction[auction.length - 1];
+
             });
             $scope.auctions = auctions;
             // console.log(auctions[0]);
@@ -24,6 +26,7 @@ $scope.onCategorySelect = function(categoryId) {
 $scope.auctionClicked = function (id) {
         $location.path("/auction/" + id);
     }
+
 
 }]);
 
