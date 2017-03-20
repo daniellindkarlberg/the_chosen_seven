@@ -30,7 +30,8 @@
                         fullName = firstName + " " + lastName;
                         errorMessage="";
                     }, function (error) {
-                        if (error.status == 401) {
+                        console.log(error.status);
+                        if (error.status == -1) {
                             errorMessage = "Unauthorized";
                         }
                     });
@@ -40,6 +41,7 @@
             },
              logOut: function () {
                isLoggedIn=false;
+               errorMessage="";
             },
             getErrorMsg:function(){
                 return errorMessage;
