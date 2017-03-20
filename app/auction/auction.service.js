@@ -12,7 +12,11 @@ angular.module("auction")
             return $http.get("http://nackademiska-api.azurewebsites.net/api/auction/completed"); 
         },
 
-        getCategories: function() {
+        getAuctionBids: function(id) {
+            return $http.get("http://nackademiska-api.azurewebsites.net/api/bid/" + id);
+        },
+
+         getCategories: function() {
             return $http.get("http://nackademiska-api.azurewebsites.net/api/category");
         },
     };

@@ -12,6 +12,17 @@ function($scope, $routeParams, auctionService, supplierService) {
         $scope.supplier = response.data;
 
        
+        auctionService.getAuctionBids(auction.id).then(function(response) {
+        $scope.bids = response.data;
+
+        console.log(response.data);
+
+       
+
+     
+    }, function(errorResponse) {
+        
+    });
 
      
     }, function(errorResponse) {
@@ -26,10 +37,14 @@ function($scope, $routeParams, auctionService, supplierService) {
     });
 
 
+ 
+
+
 
 
 
  $scope.isCollapsed = true;
+  $scope.isCollapsedBid = true;
 
 
 
