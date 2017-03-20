@@ -24,12 +24,9 @@ angular.forEach(completedAuctions, function(auction) {
         if(auction.supplierId == supplier.id){
          auction.supplierName = supplier.name;
          auction.supplierCommission = supplier.commission * auction. 
-        }
-    });
-
-    
-});
-
+            }
+        });    
+    });
 }]);
 
 
