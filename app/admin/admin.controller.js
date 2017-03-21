@@ -25,7 +25,7 @@ angular.module("admin").controller("adminController",  ["$scope",  "auctionSer
                     auctionService.getAuctionBids(auction.id).then(function (response) {
                         var bids = response.data;
                         var highestBid = bids[bids.length - 1];
-                        console.log(bids[0].bidPrice);
+                        console.log(highestBid);
                         auction.highestBid = highestBid.bidPrice;
                         auction.dateOfHighestBid = highestBid.dateTime;
                         console.log("Highest bid: " + auction.highestBid);
@@ -33,20 +33,35 @@ angular.module("admin").controller("adminController",  ["$scope",  "auctionSer
                         console.log("Commission: " + auction.commission);
                     });
                 });
-                $scope.completedAuctions = completedAuctions;
+
                 console.log("Commission for completed auction: " + completedAuctions[0].commission);
+
+                angular.forEach(completedAuctions, function(auction) {
+                    if(auction.highestBid == auction.buyNowPrice) {
+                        auction.finishedTime = auction.dateOfHighestBid;
+                    } else {
+                        auction.finishedTime = auction.endTime;
+                    }
+                    console.log(auction.finishedTime);
+                    auction.endMonth =  auction.finishedTime.getMonth();
+                });
+
+                var salesMonths = {"01": "Januari", "02": "Februari", "03": "Mars", "04": "April", "05": "Maj", "06": "Juni",
+                    "07": "Juli", "08": "Augusti", "09": "September", "10": "Oktober", "11": "November", "12": "December"};
+                
+                angular.forEach(salesMonths, function(salesMonth, index) {
+                    salesMonth.sales = 0;
+                    angular.forEach(completedAuctions, function(auction) {
+                        if(auction.endMonth = index) {
+                            salesMonth.sales += auction.highestBid;
+                        };
+                    });
+                    console.log("Sales during month: " + index + "was: " + salesmonth.sales);
+                });
+
+                $scope.completedAuctions = completedAuctions;
+                $scope.salesMonths = salesMonths;
+
             });
             });
-
-            /*
-            Om högsta priset = acceptpriset så avslutades auktionen på .dateOfHighestBid
-            Annars avslutades auktionen på .endTime
-            Loopa de avslutade auktionerna
-            Kontrollera när varje auktion avslutades.
-            Ta fram månaden för avslutningsdatumet month(dateTime)?)
-
-            ng-repeat "month in months"
-
-            */
-
     }]);
