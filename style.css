@@ -1,3 +1,57 @@
+
+.navbar-default{
+
+background: #B0BEC5;
+border-radius: 8px;
+
+
+}
+
+
+
+.dropdown-menu{
+
+background: lightgray;
+
+
+}
+
+.btn-primary{
+
+background: lightgray;
+color: black;
+
+    
+}
+
+.btn-primary:hover, .open>.dropdown-toggle.btn-primary {
+    color: black;
+    background-color: ghostwhite;
+   
+   
+}
+
+
+.navbar-nav a{
+  color:black !important;
+  font-size: 20px;
+}
+
+
+.navbar-text{
+
+  color:black !important;
+  font-size: 20px;
+
+}
+
+.logo{
+
+max-width: 15%;
+max-height: 15%;
+float: left;
+
+}
 #auction-list {
     border: solid black;
 }
@@ -20,7 +74,7 @@
     margin-bottom: 10px;
 }
 #loggedin{
-  color:limegreen;
+  color:mediumseagreen;
   font-weight: bold;
 }
 #logout{
@@ -36,4 +90,13 @@ background-color: ghostwhite;
 #bidForm {
     width: 25%;
 }
+
+body{
+
+font-family: Arial, Helvetica, sans-serif;
+
+
+}
+
+
 

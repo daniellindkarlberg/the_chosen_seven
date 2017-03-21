@@ -6,7 +6,7 @@
     <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Gunnars auktioner</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
 
@@ -44,24 +44,27 @@
     <script src="app/supplier/supplier.module.js"></script>
     <script src="app/supplier/supplier.service.js"></script>
     <script src="app/supplier/supplier-details.controller.js"></script>
+    
+     <script src="app/auction/activeAuctions.filter.js"></script>
 
-     <script src="app/filter/filter.module.js"></script>
-      <script src="app/filter/filter.js"></script>
+  
+     
 
 </head>
 
 <body ng-app="app" ng-controller="appController">
     <div class="container">
-        <h1> Gunnar's Auctions </h1>
+        
         <nav class="navbar navbar-default">
             <div class="container-fluid">
 
 
                 <div class="navbar-header">
-                    <p class="navbar-text">Gunnars Auktioner</p>
+                    
+                  <img class="logo" src="app/images/ic_diamond_black_48dp.png"/><h4 class="navbar-text">Gunnars Auktioner</h4>
                 </div>
                 <ul class="nav navbar-nav navbar-left">
-                    <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                    <li><a href="/"><span class="glyphicon glyphicon-home"></span> Hem</a></li>
                     <form class="navbar-form navbar-left">
                         <div class="form-group">
                             <li><span><input type="text" class="form-control" placeholder="Sök auktion" ng-model="productSearchInput"></span></li>
