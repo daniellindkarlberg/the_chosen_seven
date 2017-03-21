@@ -11,7 +11,7 @@ angular.module("admin").controller("adminController", ["$scope", "auctionService
                 suppliers = response.data;
                 // console.log("First supplier name: " + suppliers[0].companyName);
 
-                angular.forEach(completedAuctions, function (auction, index) {
+                angular.forEach(completedAuctions, function (auction) {
                     angular.forEach(suppliers, function (supplier) {
                         if (auction.supplierId == supplier.id) {
                             auction.supplierName = supplier.companyName;
@@ -19,7 +19,7 @@ angular.module("admin").controller("adminController", ["$scope", "auctionService
                             auction.commissionRate = supplier.commission;
                             // console.log("Supplier commission rate: " + auction.commissionRate);
                         }
-                    });
+                    })
 
                     // console.log("Auction id for bids: " + auction.id);
                     auctionService.getAuctionBids(auction.id).then(function (response) {
@@ -31,30 +31,18 @@ angular.module("admin").controller("adminController", ["$scope", "auctionService
                         // console.log("Highest bid: " + auction.highestBid);
                         auction.commission = auction.commissionRate * auction.highestBid;
                         // console.log("Commission: " + auction.commission);
-                        console.log(index);
-                        if(index == completedAuctions.length - 1) {
-                             $scope.makeSalesMonths();
-                        }
-                        
+                        $scope.makeSalesMonths(completedAuctions);
                     });
-               
                 });
-
-                
 
                 // console.log("Commission for completed auction: " + completedAuctions[0].commission);
 
-                $scope.completedAuctions = completedAuctions;
+                // Function to run inside the AJAX sequence.
 
-            });
-        });
-
-        // Function to run inside the AJAX sequence.
-          $scope.makeSalesMonths = function () {
+                $scope.makeSalesMonths = function (completedAuctions) {
                     console.log("Starting function makeSalesMonths");
 
                     angular.forEach(completedAuctions, function (auction) {
-                        console.log(auction);
                         if (auction.highestBid == auction.buyNowPrice) {
                             auction.finishedTime = auction.dateOfHighestBid;
                         } else {
@@ -88,4 +76,9 @@ angular.module("admin").controller("adminController", ["$scope", "auctionService
                     });
                     $scope.salesMonths = salesMonths;
                 }
+
+                $scope.completedAuctions = completedAuctions;
+
+            });
+        });
     }]);

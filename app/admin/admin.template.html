@@ -1,6 +1,5 @@
 <div class="container" ng-controller="adminController">
 
-    {{getCompletedAuctions()}}
     <h1> Avslutade auktioner </h1>
         <div class="container">
             <div class="row">
@@ -11,12 +10,12 @@
                         <p>{{ "Objekt: " + auction.name }}</p>
                         <p>{{ "Leverantör: " + auction.supplierName }}</p>
                         <p>{{ "Slutbud: " + auction.highestBid }}</p>
-                        <p>{{ "Provisionsandel: " + auction.commissionRate }}</p>
+                        <p>{{ "Provisionsandel: " + auction.commissionRate * 100 + "%"}}</p>
                         <p>{{ "Provision: " + auction.commission }}</p>
                     </div>
                 </div>
             </div>
         </div>
-
+        <button ng-click="makeSalesMonths()" class="btn btn-primary">Beräkna</button>
 </div>
 
