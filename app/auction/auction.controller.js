@@ -12,13 +12,14 @@ angular.module("auction").
 
                 auctionService.getAuctionBids(auction.id).then(function (response) {
                     var bids = response.data;
-
+                    
                     if (bids[0].auctionId == auction.id) {
 
                         auction.highestBid = bids[bids.length - 1].bidPrice;
 
-                    }
 
+                    }
+                
                 });
 
             });
