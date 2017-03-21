@@ -4,8 +4,8 @@ angular.module("filter")
         return function (input) {
             var ret = [];
             //var date=new Date();
-            angular.forEach(input, function (o) {
-                if (o.fromDate > new Date() && o.toDate < new Date()) {
+            angular.forEach(input, function (auction) {
+                if (auction.startTime > new Date() && auction.endTime < new Date() && auction.highestBid != auction.buyNowPrice) {
                     ret.push(o);
                     console.log(o);
                 }

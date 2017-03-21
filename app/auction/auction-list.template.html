@@ -15,9 +15,10 @@
  
         <div class="container">
             <div class="row">
-                <div ng-repeat="auction in auctions | filter: {categoryId:selectedCategoryId} | filter: productSearchInput | filter: activeAuctionsFilter" ng-click="auctionClicked(auction.id)">
+                <div ng-repeat="auction in auctions | filter: {categoryId:selectedCategoryId} | filter: productSearchInput " ng-click="auctionClicked(auction.id)">
                     <div class="clearfix" ng-if="$index % 3 == 0"></div>
                     <div class="col-sm-4">
+                       
                         <img class="bilder" ng-src="{{ auction.imageUrl }}" alt="Bild på auktioner">
                         <p>{{ auction.name }}</p>
                         <p>Högsta bud: {{auction.highestBid}}</p>
