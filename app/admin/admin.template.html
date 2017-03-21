@@ -11,7 +11,7 @@
                         <p>{{ "Objekt: " + auction.name }}</p>
                         <p>{{ "Leverantör: " + auction.supplierName }}</p>
                         <p>{{ "Slutbud: " + auction.highestBid }}</p>
-                        <p>{{ "Provisionsandel: " + auction.commissionRate }}</p>
+                        <p>{{ "Provisionsandel: " + auction.commissionRate * 100 + "%"}}</p>
                         <p>{{ "Provision: " + auction.commission }}</p>
                     </div>
                 </div>
