@@ -1,4 +1,9 @@
 
+.container{
+
+width: 100%;
+
+}
 .navbar-default{
 
 background: #B0BEC5;
@@ -63,8 +68,8 @@ float: left;
     border: solid black;
 }
 .bilder {
-    height: 140px;
-    width: 140px;
+    height: 180px;
+    width: 180px;
     border-radius: 7px;
 }
 .row {

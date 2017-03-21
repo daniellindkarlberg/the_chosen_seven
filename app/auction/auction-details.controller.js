@@ -5,6 +5,7 @@ angular.module("auction").
             var auction = {};
             var customerId = loginService.getCustomerId();
             $scope.bid = {};
+            var highestBid;
 
 
 
@@ -21,7 +22,7 @@ angular.module("auction").
 
                         bids = response.data
                         if(!bids.length == 0){
-                        var highestBid = bids[bids.length - 1];
+                        highestBid = bids[bids.length - 1];
                         $scope.highestBid = highestBid.bidPrice;
                         $scope.bids = response.data;
                         }
@@ -42,8 +43,10 @@ angular.module("auction").
             $scope.updateBidHistory = function () {
                 $timeout(function () {
                     auctionService.getAuctionBids(auction.id).then(function (response) {
-
-                        $scope.bids = response.data;
+                         var bids = response.data;
+                        $scope.bids = bids;
+                        highestBid = bids[bids.length - 1];
+                        $scope.highestBid = highestBid.bidPrice;
 
                         console.log(response.data);
                     }, function (errorResponse) {
@@ -72,7 +75,7 @@ angular.module("auction").
 
                     auctionService.placeBid(bidObject).then(function (response) {
 
-                        $scope.text = "Grattis till inlöpet";
+                        $scope.text = "Grattis till inköpet!";
 
 
                     }, function (errorResponse) {
@@ -95,6 +98,8 @@ angular.module("auction").
                         customerId: customerId,
                         bidPrice: bid
                     };
+
+                    $scope.bid.placeBid= null;
 
                     auctionService.placeBid(bidObject).then(function (response) {
 
