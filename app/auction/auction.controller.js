@@ -1,39 +1,61 @@
 angular.module("auction").
-    controller("auctionController", ["$scope", "$location", "auctionService", function ($scope, $location, auctionService) {
-
-
-
-
+    controller("auctionController", ["$scope", "$location", "auctionService","$filter",function ($scope, $location, auctionService, $filter) {
 
         auctionService.getAuctions().then(function (response) {
             var auctions = response.data;
-
+              
             angular.forEach(auctions, function (auction) {
-                       
-                       
+            auction.highestBid = 0;
+
                 auctionService.getAuctionBids(auction.id).then(function (response) {
-                 
+                     
                     var bids = response.data;
-                    if(!bids.length == 0 && bids[0].auctionId == auction.id){
-                    
-               
+                    if (!bids.length == 0){
 
                         auction.highestBid = bids[bids.length - 1].bidPrice;
-                          // console.log(auction.highestBid);
+                        
+
 
                     }
-                    
-                
+
+
                 });
 
             });
 
-
-
-
-
-            $scope.auctions = activeAuctionsFilter(auctions);
+            $scope.auctions = auctions;
         });
+
+
+
+        function activeAuctionsFilter(auctionsInput) {
+            var a = [];
+              console.log(auctionsInput);
+
+            angular.forEach(auctionsInput, function (auction) {
+               
+
+                if (auction.buyNowPrice == 18000 ) {
+                   
+                   
+                    a.push(auction);
+                    
+
+
+
+                }
+            });
+
+            return a;
+
+
+        };
+
+
+
+
+
+
 
         auctionService.getCategories().then(function (response) {
             var categories = response.data;
@@ -51,25 +73,7 @@ angular.module("auction").
         }
 
 
-        function activeAuctionsFilter (auctionsInput) {
-            var a = [];
-            //console.log(auctionsInput);
-            
-            angular.forEach(auctionsInput, function (auction) {
-           
-                if (auction.buyNowPrice != auction.highestBid) {
-                    a.push(auction);
-                  //  console.log(auction.buyNowPrice);
-                    
 
-                   
-                }
-            });
-            //console.log(auctions);
-            return a;
-
-           
-        };
 
 
     }]);

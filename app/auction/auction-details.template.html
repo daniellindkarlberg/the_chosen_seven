@@ -20,8 +20,8 @@
                     <td><img ng-src="{{ auction.imageUrl }}" class="bilder"></td>
                     <td>{{ auction.name }}</td>
                     <td>{{ auction.description }}</td>
-                    <td>{{ auction.startTime | date :'yyyy-mm-dd' }}</td>
-                    <td>{{ auction.endTime | date :'yyyy-mm-dd'}}</td>
+                    <td>{{ auction.startTime | date :'yyyy-MM-dd' }}</td>
+                    <td>{{ auction.endTime | date :'yyyy-MM-dd'}}</td>
 
 
 
@@ -58,7 +58,7 @@
                     <tbody ng-repeat="bid in bids" >
                        <div class="bidHistory" >
                         <tr>
-                            <td><strong> Datum:</strong> {{bid.dateTime | date :'yyyy-mm-dd' }}</td>
+                            <td><strong> Datum:</strong> {{bid.dateTime | date :'yyyy-MM-dd' |orderBy : date }}</td>
                         </tr>
                         <tr>
                             <td><strong> Bud:</strong> {{bid.bidPrice}}</td>

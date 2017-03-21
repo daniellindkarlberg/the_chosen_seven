@@ -20,9 +20,11 @@ angular.module("auction").
                     auctionService.getAuctionBids(auction.id).then(function (response) {
 
                         bids = response.data
+                        if(!bids.length == 0){
                         var highestBid = bids[bids.length - 1];
                         $scope.highestBid = highestBid.bidPrice;
                         $scope.bids = response.data;
+                        }
 
                     }, function (errorResponse) {
 
