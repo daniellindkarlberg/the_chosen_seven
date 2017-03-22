@@ -18,10 +18,10 @@
         </div>
 
         <br>
-        <button ng-click="makeSalesMonths()" class="btn btn-primary">Skapa säljrapport</button>
+        <button ng-show="showSalesReportButton" ng-click="makeSalesMonths()" class="btn btn-primary">Skapa säljrapport</button>
         <br> <br>
 
-        <div class="container-fluid">
+        <div ng-show="showSalesReport" class="container-fluid">
         <table class="table table-striped">
             <tr>
                 <th> Månad </th>
@@ -35,7 +35,7 @@
                 <td> {{salesMonth.totalCommission}} </td>
             </tr>
         </table>
-    </div>
+        </div>
        
 
 </div>

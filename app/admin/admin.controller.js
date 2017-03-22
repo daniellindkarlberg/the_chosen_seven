@@ -2,6 +2,8 @@ angular.module("admin").controller("adminController", ["$scope", "auctionService
     function ($scope, auctionService, supplierService) {
         var completedAuctions;
         var suppliers;
+        $scope.showSalesReportButton = false;
+        $scope.showSalesReport = false;
 
         auctionService.getCompletedAuctions().then(function (response) {
             completedAuctions = response.data;
@@ -23,9 +25,10 @@ angular.module("admin").controller("adminController", ["$scope", "auctionService
                         auction.highestBid = highestBid.bidPrice;
                         auction.dateOfHighestBid = highestBid.dateTime;
                         auction.commission = auction.commissionRate * auction.highestBid;
-                        //if(index == completedAuctions.length - 1) {
+                        if(index == completedAuctions.length - 1) {
+                            $scope.showSalesReportButton = true;
                         //    $scope.makeSalesMonths();
-                        //} 
+                        } 
                     });
                
                 });
@@ -79,5 +82,6 @@ angular.module("admin").controller("adminController", ["$scope", "auctionService
                         // console.log("Commission during month: " + salesMonth.name + " was: " + salesMonth.totalCommission);
                     });
                     $scope.salesMonths = salesMonths;
+                    $scope.showSalesReport = true;
                 }
     }]);
