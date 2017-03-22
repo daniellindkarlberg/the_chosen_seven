@@ -46,7 +46,7 @@ angular.module("admin").controller("adminController", ["$scope", "auctionService
                     angular.forEach(completedAuctions, function (auction) {
                         // console.log(auction);
                         if (auction.highestBid == auction.buyNowPrice) {
-                            // console.log("Buy now price was paid");
+                            // console.log("Buy-now price was paid");
                             auction.finishedTime = auction.dateOfHighestBid;
                         } else {
                             // console.log("End time was reached");
