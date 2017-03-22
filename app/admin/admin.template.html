@@ -16,6 +16,26 @@
                 </div>
             </div>
         </div>
+
         <button ng-click="makeSalesMonths()" class="btn btn-primary">Beräkna</button>
+
+
+        <div class="container-fluid">
+        <table class="table table-striped">
+            <tr>
+                <th> Månad </th>
+                <th> Försäljning </th>
+                <th> Provision </th>
+            </tr> 
+
+            <tr ng-repeat="salesMonth in salesMonths">
+                <td> {{salesMonth.name}} </td>
+                <td> {{salesMonth.totalSales}} </td>
+                <td> {{salesMonth.totalCommission}} </td>
+            </tr>
+        </table>
+    </div>
+       
+
 </div>
 
